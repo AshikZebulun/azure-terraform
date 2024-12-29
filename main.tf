@@ -10,3 +10,9 @@ terraform {
 provider "azurerm" {
   features {}
 }
+
+resource "azurerm_resource_group" "test-rg" {
+  name     = "test-rg"
+  location = "UK South"
+
+}
