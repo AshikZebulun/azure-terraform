@@ -1,13 +1,17 @@
 resource "azuread_application" "aro-app-1" {
   display_name = "aro-app-1"
   owners       = ["97b509a9-b4dc-4fc9-9748-dd62dea3278a"]
-  tags         = azurerm_resource_group.aro-rg-1.tags
+  tags = {
+    cluster = "aro-test"
+  }
 }
 
 resource "azuread_service_principal" "aro-spn-1" {
   client_id = azuread_application.aro-app-1.client_id
   owners    = ["97b509a9-b4dc-4fc9-9748-dd62dea3278a"]
-  tags      = azurerm_resource_group.aro-rg-1.tags
+  tags = {
+    cluster = "aro-test"
+  }
 }
 
 resource "azuread_service_principal_password" "aro-spn-pass-1" {
