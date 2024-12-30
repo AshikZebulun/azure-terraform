@@ -9,11 +9,11 @@ resource "azuread_service_principal" "aro-spn-1" {
 }
 
 resource "azuread_service_principal_password" "aro-spn-pass-1" {
-  service_principal_id = azuread_service_principal.aro-spn-1.object_id
+  service_principal_id = azuread_service_principal.aro-spn-1.id
 }
 
 resource "azurerm_role_assignment" "aro-role-assignment-1" {
   scope                = azurerm_virtual_network.aro-vnet-1.id
   role_definition_name = "Network Contributor"
-  principal_id         = azuread_service_principal.aro-spn-1.object_id
+  principal_id         = azuread_service_principal.aro-spn-1.id
 }
