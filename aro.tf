@@ -37,6 +37,8 @@ resource "azurerm_redhat_openshift_cluster" "aro-cluster-1" {
     client_id = azuread_application.aro-app-1.client_id
     client_secret = azuread_service_principal_password.aro-spn-pass-1.value
   }
+
+  depends_on = [ azurerm_role_assignment.aro-role-assignment-1 ]
 }
 
 output "console_url" {
