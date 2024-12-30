@@ -30,7 +30,6 @@ resource "azurerm_redhat_openshift_cluster" "aro-cluster-1" {
   worker_profile {
     vm_size      = "Standard_D4s_v3"
     disk_size_gb = 128
-    node_count   = 3
     subnet_id    = azurerm_subnet.aro-worker-subnet-1.id
   }
 
