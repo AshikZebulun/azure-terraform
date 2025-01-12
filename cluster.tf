@@ -1,6 +1,6 @@
 module "aro_cluster" {
   source                   = "app.terraform.io/az/module/aro"
-  version                  = "1.0.2"
+  version                  = "1.0.5"
   cluster_location         = "uks"
   cluster_environment      = "dev"
   cluster_count            = 1
